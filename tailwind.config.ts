@@ -59,9 +59,9 @@ export default {
 				},
 				// Xelis custom colors
 				xelis: {
-					'blue': '#00f2c3', // Changed from '#3B82F6' to turquoise
-					'light-blue': '#33f7ce', // Lighter turquoise
-					'dark-blue': '#00d6ab', // Darker turquoise
+					'blue': '#3B82F6',
+					'light-blue': '#60A5FA',
+					'dark-blue': '#2563EB',
 					'gray': '#F3F4F6',
 					'dark-gray': '#9CA3AF',
 					'black': '#111827',
