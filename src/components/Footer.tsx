@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Github, Twitter, Globe, Mail } from 'lucide-react';
 
@@ -9,7 +10,11 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-xelis-blue">XELIS</span>
+              <img 
+                src="/lovable-uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
+                alt="XELIS Logo" 
+                className="h-10"
+              />
             </a>
             <p className="text-gray-600 mb-6 max-w-md">
               A next-generation blockchain platform designed for 
