@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { GitHub, Twitter, Globe, Mail } from 'lucide-react';
+import { Github, Twitter, Globe, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -24,7 +23,7 @@ const Footer = () => {
                 className="text-gray-500 hover:text-xelis-blue transition-colors"
                 aria-label="GitHub"
               >
-                <GitHub className="h-5 w-5" />
+                <Github className="h-5 w-5" />
               </a>
               <a 
                 href="https://twitter.com/xelis" 
