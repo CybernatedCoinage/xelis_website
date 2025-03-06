@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-sky-50 to-white">
+    <div className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24 bg-white">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[15%] right-[10%] w-64 h-64 rounded-full bg-blue-100/40 blur-3xl" />
@@ -15,8 +15,8 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block animate-fade-in">
-            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100 text-sm font-medium text-xelis-blue">
-              Next Generation Blockchain
+            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100 text-sm font-bold text-black">
+              Next Generation BlockDAG
             </span>
           </div>
 

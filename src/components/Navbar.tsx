@@ -25,7 +25,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <span className="text-2xl font-bold text-xelis-blue">XELIS</span>
+          <img 
+            src="/lovable-uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
+            alt="XELIS Logo" 
+            className="h-8"
+          />
         </a>
 
         {/* Desktop Navigation */}
