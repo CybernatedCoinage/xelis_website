@@ -11,8 +11,8 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Close mobile menu when scrolling
-      if (isMobileMenuOpen && window.scrollY > 10) {
+      // Close mobile menu when scrolling significantly
+      if (isMobileMenuOpen && window.scrollY > 50) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -21,11 +21,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobileMenuOpen]);
 
-  // Add event to close menu when clicking outside
+  // Close menu when clicking outside, but make sure to exclude the toggle button itself
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isMobileMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('button')) {
+      // Check if click is outside menu and not on the toggle button itself
+      if (
+        isMobileMenuOpen && 
+        !target.closest('.mobile-menu-container') && 
+        !target.closest('.mobile-menu-toggle')
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -33,6 +38,11 @@ const Navbar = () => {
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the click from bubbling to document
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <nav 
@@ -65,8 +75,8 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden mobile-menu-toggle"
+          onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? (
