@@ -111,7 +111,9 @@ const Navbar = () => {
             GitHub
           </a>
           <a 
-            href="#contact" 
+            href="https://xelis.io/resources"  // Add the correct URL for the wallet
+            target="_blank" 
+            rel="noopener noreferrer" 
             className="button-primary mx-auto"
             onClick={() => setIsMobileMenuOpen(false)}
           >
