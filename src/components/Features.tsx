@@ -7,42 +7,42 @@ const features = [
   {
     icon: <Shield className="h-10 w-10" />,
     title: 'Enhanced Security',
-    description: 'Advanced cryptographic algorithms ensuring top-tier protection for all transactions and smart contracts.',
+    description: 'Our advanced cryptographic design provides top-tier protection for all transactions and smart contracts, leveraging cutting-edge security protocols to safeguard user assets, prevent unauthorized access, and ensure the integrity of the blockchain network.',
     color: 'text-indigo-500',
     bgColor: 'bg-indigo-50',
   },
   {
     icon: <Zap className="h-10 w-10" />,
-    title: 'Lightning Fast',
-    description: 'Enjoy high throughput and minimal latency with our efficient consensus mechanism.',
+    title: 'Fast Transactions',
+    description: 'Experience fast transaction speeds and minimal latency with our highly efficient BlockDAG consensus mechanism, designed to maximize throughput, enhance scalability, and ensure seamless network performance even under high demand.',
     color: 'text-amber-500',
     bgColor: 'bg-amber-50',
   },
   {
     icon: <Code className="h-10 w-10" />,
     title: 'Developer Friendly',
-    description: 'Extensive developer tools, APIs, and documentation making blockchain development accessible.',
+    description: 'A comprehensive suite of developer tools, robust APIs, and detailed documentation empowers developers of all levels, making blockchain and smart contract development more accessible, efficient, and seamless.',
     color: 'text-blue-500',
     bgColor: 'bg-blue-50',
   },
   {
     icon: <Leaf className="h-10 w-10" />,
-    title: 'Energy Efficient',
-    description: 'Environmentally conscious proof-of-stake consensus with minimal energy consumption.',
+    title: 'Decentralized & Eco-Friendly',
+    description: 'Achieve maximum security with our decentralized proof-of-work consensus mechanism, paired with an energy-efficient CPU/GPU mining algorithm designed to ensure integrity of the network and reduce energy expenditure & centralization.',
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-50',
   },
   {
     icon: <Lock className="h-10 w-10" />,
     title: 'Privacy-Focused',
-    description: 'Built-in privacy features allowing users to control their data while maintaining transparency.',
+    description: 'Built-in privacy features allow users to control their financial data while maintaining transparency, ensuring confidentiality by concealing wallet balances and transaction amounts while upholding verifiable security and trust within the network.',
     color: 'text-violet-500',
     bgColor: 'bg-violet-50',
   },
   {
     icon: <Globe className="h-10 w-10" />,
     title: 'Global Scalability',
-    description: 'Designed to scale globally with cross-chain compatibility and seamless integrations.',
+    description: 'Engineered for global scalability, our platform leverages the power of the BlockDAG consensus mechanism to provide high transaction throughput, ensuring optimal performance even as the network grows and ecosystems expand.',
     color: 'text-cyan-500',
     bgColor: 'bg-cyan-50',
   },
@@ -65,15 +65,15 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
 
 const Features = () => {
   return (
-    <section id="features" className="py-16 md:py-24">
+    <section id="features" className="py-4 md:py-8">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 border border-blue-100 text-sm font-medium text-xelis-blue">
+          <span className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#02FFCF] border border-white text-sm font-medium text-black">
             Core Features
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose XELIS?</h2>
           <p className="text-lg text-gray-600">
-            Our blockchain platform combines cutting-edge technology with user-centric design to deliver an unparalleled experience.
+            XELIS is the world's first PoW BlockDAG to combine privacy, scalability, security, and Layer 1 Smart Contracts. Our blockchain platform combines cutting-edge technology with user-centric design to deliver an unparalleled experience.
           </p>
         </div>
 

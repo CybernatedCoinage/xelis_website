@@ -15,30 +15,35 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block animate-fade-in">
-            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100 text-sm font-bold text-black">
+            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-[#02FFCF] border border-white text-sm font-bold text-black">
               Next Generation BlockDAG
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-            <span className="block">Secure, Scalable,</span>
-            <span className="block text-xelis-blue">Cutting-Edge Blockchain</span>
+            <span className="block">Secure, Scalable, Private</span>
+            <span className="block text-xelis-blue">Cutting-Edge BlockDAG</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in animate-delay-200">
-            XELIS is a modern L1 blockchain designed for efficiency and 
-            scalability with innovative features for developers and users alike.
+          XELIS is a modern Layer 1 blockchain, built to prioritize confidentiality, usability, and scalability. It offers innovative features for both developers and users, including robust smart contracts, a high-performance Virtual Machine, and seamless integration with DeFi.
+          <br />
+          <br />Built for the people, by the people.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in animate-delay-300">
-            <AnimatedButton size="lg" className="w-full sm:w-auto">
-              Start Building
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </AnimatedButton>
-            <AnimatedButton variant="secondary" size="lg" className="w-full sm:w-auto">
-              Read Documentation
-            </AnimatedButton>
-          </div>
+  <a href="https://playground.xelis.io" target="_blank" rel="noopener noreferrer">
+    <AnimatedButton size="lg" className="w-full sm:w-auto">
+      Start Building
+      <ArrowRight className="ml-2 h-5 w-5" />
+    </AnimatedButton>
+  </a>
+  <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer">
+    <AnimatedButton variant="secondary" size="lg" className="w-full sm:w-auto">
+      Read Documentation
+    </AnimatedButton>
+  </a>
+</div>
         </div>
 
         {/* Hero Image/Illustration */}
@@ -54,22 +59,33 @@ const Hero = () => {
             </div>
             
             {/* Floating Elements */}
-            <div className="absolute -top-6 -right-6 animate-float">
+            <div className="absolute -top-6 -right-6 animate-float z-10">
               <div className="glass p-4 rounded-xl shadow-sm">
                 <div className="text-sm font-medium">Transactions per second</div>
-                <div className="text-2xl font-bold text-xelis-blue">1,200+</div>
+                <div className="text-2xl font-bold text-xelis-blue">2,500+</div>
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 animate-float" style={{ animationDelay: '1s' }}>
+            <div className="absolute -bottom-8 -left-4 animate-float z-10" style={{ animationDelay: '1s' }}>
               <div className="glass p-4 rounded-xl shadow-sm">
                 <div className="text-sm font-medium">Energy Efficient</div>
-                <div className="text-2xl font-bold text-xelis-blue">Proof of Stake</div>
+                <div className="text-2xl font-bold text-xelis-blue">Proof of Work</div>
               </div>
             </div>
+            {/* Centered Iframe */}
+            <div className="absolute inset-0 flex justify-center items-center z-0">
+              <iframe
+              src="https://explorer.xelis.io/dag"
+              width="75%" 
+              height="80%" 
+              className="rounded-lg shadow-lg"
+              frameBorder="0"
+              title="Xelis DAG Explorer"
+              />
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

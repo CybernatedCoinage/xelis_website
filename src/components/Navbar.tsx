@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -26,7 +25,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
+            src="/lovable-uploads/transparent_backgroud_black_logo.png" 
             alt="XELIS Logo" 
             className="h-8"
           />
@@ -36,10 +35,12 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <a href="#features" className="link-hover font-medium">Features</a>
           <a href="#about" className="link-hover font-medium">About</a>
-          <a href="https://docs.xelis.io" className="link-hover font-medium">Documentation</a>
-          <a href="https://github.com/xelis-project" className="link-hover font-medium">GitHub</a>
-          <a href="#contact" className="button-primary">
-            Get Started
+          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Documentation</a>
+          <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Explorer</a>
+          <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Stats</a>
+          <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">GitHub</a>
+          <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary">
+            Get a Wallet
           </a>
         </div>
 
@@ -79,13 +80,31 @@ const Navbar = () => {
           </a>
           <a 
             href="https://docs.xelis.io" 
+            target="_blank" rel="noopener noreferrer" 
             className="text-lg py-3" 
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Documentation
           </a>
           <a 
+            href="https://explorer.xelis.io" 
+            target="_blank" rel="noopener noreferrer" 
+            className="text-lg py-3" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Explorer
+          </a>
+          <a 
+            href="https://stats.xelis.io" 
+            target="_blank" rel="noopener noreferrer" 
+            className="text-lg py-3" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Stats
+          </a>
+          <a 
             href="https://github.com/xelis-project" 
+            target="_blank" rel="noopener noreferrer" 
             className="text-lg py-3" 
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -105,3 +124,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
