@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -9,11 +10,29 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Close mobile menu when scrolling
+      if (isMobileMenuOpen && window.scrollY > 10) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  // Add event to close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMobileMenuOpen && !target.closest('.mobile-menu-container') && !target.closest('button')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   return (
     <nav 
@@ -60,7 +79,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out", 
+        "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out mobile-menu-container", 
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-6 text-center">
@@ -124,5 +143,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
