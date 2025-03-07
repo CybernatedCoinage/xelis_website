@@ -28,7 +28,22 @@ const About = () => {
     fetchCirculatingSupply(); // Call the function when the component mounts
   }, []); // Empty dependency array means this will run only once when the component mounts
 
-  console.log(circulatingSupply);  // Log the state value after it is set
+  // Function to format the circulating supply into a more readable form like 2.345m
+  const formatCirculatingSupply = (supply: number | null) => {
+    if (supply === null) return 'Loading...';
+
+    // Round to 4 decimal places
+    const roundedSupply = supply.toFixed(4);
+
+    // Convert the number to human-readable format (e.g., millions or billions)
+    if (supply >= 1_000_000) {
+      return (supply / 1_000_000).toFixed(3) + 'm';  // Return value in millions (m)
+    } else if (supply >= 1_000) {
+      return (supply / 1_000).toFixed(3) + 'k';  // Return value in thousands (k)
+    }
+
+    return roundedSupply;  // Return rounded value if less than 1,000
+  };
 
   return (
     <section id="about" className="bg-gray-50 py-16 md:py-24">
@@ -94,14 +109,14 @@ const About = () => {
                 {/* Circulating Supply - Dynamically updated */}
                 <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">
-                    {/* Display dynamic value without decimals */}
-                    {circulatingSupply !== null ? Math.round(circulatingSupply).toLocaleString() : 'Loading...'}
+                    {/* Display formatted circulating supply */}
+                    {formatCirculatingSupply(circulatingSupply)}
                   </div>
                   <div className="text-sm text-gray-500">Circulating Supply</div>
                 </div>
                 
                 <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-xelis-blue mb-1">18,400,000</div>
+                  <div className="text-3xl font-bold text-xelis-blue mb-1">18.4m</div>
                   <div className="text-sm text-gray-500">Max Supply</div>
                 </div>
               </div>
@@ -110,14 +125,14 @@ const About = () => {
                 <h4 className="text-lg font-medium mb-4 text-center">Ongoing Development</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Smart Contracts on Mainnet</span>
+                    <span className="text-sm text-gray-600">Smart Contracts</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">MultiThread TPS Increase</span>
+                    <span className="text-sm text-gray-600">MultiThread TPS+</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
                     </div>
