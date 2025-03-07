@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -9,11 +10,39 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Close mobile menu when scrolling significantly
+      if (isMobileMenuOpen && window.scrollY > 50) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  // Close menu when clicking outside, but make sure to exclude the toggle button itself
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      // Check if click is outside menu and not on the toggle button itself
+      if (
+        isMobileMenuOpen && 
+        !target.closest('.mobile-menu-container') && 
+        !target.closest('.mobile-menu-toggle')
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the click from bubbling to document
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <nav 
@@ -46,8 +75,8 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden mobile-menu-toggle"
+          onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? (
@@ -60,7 +89,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out", 
+        "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out mobile-menu-container", 
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-6 text-center">
@@ -126,5 +155,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
