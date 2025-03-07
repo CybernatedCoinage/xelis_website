@@ -115,7 +115,7 @@ const Navbar = () => {
             className="button-primary mx-auto"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Get Started
+            Get A Wallet
           </a>
         </div>
       </div>
