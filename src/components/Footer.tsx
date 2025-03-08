@@ -58,9 +58,9 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li><a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Documentation</a></li>
                 <li><a href="https://whitepaper.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
-                <li><a href="https://xelis.io/roadmap" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</a></li>
+                <li><a href="/roadmap"  className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</a></li>
                 <li><a href="https://xeliscommunity.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Educational Content & Updates</a></li>
-                <li><a href="https://xelis.io/resources/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>
+                <li><a href="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>
                 <li><a href="https://faucet.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Faucet (Free Xelis)</a></li>
               </ul>
             </div>
@@ -70,10 +70,10 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li><a href="https://docs.xelis.io/contributors" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Team</a></li>
-                <li><a href="https://xelis.io/merch" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Merchandise</a></li>
-                <li><a href="https://docs.xelis.io/links/exchanges" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</a></li>
+                <li><a href="https://poolpartynodes.com/product-category/xelis-clothing-store/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Merchandise</a></li>
+                <li><a href="/exchanges"  className="text-gray-600 hover:text-xelis-blue transition-colors">Exchanges</a></li>
                 <li><a href="https://linktr.ee/Xelis" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Additional Links</a></li>
-                <li><a href="https://docs.xelis.io/tokenomics" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</a></li>
+                <li><a href="/tokenomics"  className="text-gray-600 hover:text-xelis-blue transition-colors">Tokenomics</a></li>
                 <li><a href="mailto:business@xelis.io" className="text-gray-600 hover:text-xelis-blue transition-colors">Contact: business@xelis.io</a></li>
               </ul>
             </div>

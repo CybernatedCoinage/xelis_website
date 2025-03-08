@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { Shield, Zap, Code, Leaf, Lock, Globe } from 'lucide-react';
+import { Shield, Zap, Code, Leaf, Lock, Globe, FileText, Key, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const features = [
   {
-    icon: <Shield className="h-10 w-10" />,
+    icon: <Shield className="h-10 w-10" />, 
     title: 'Enhanced Security',
     description: 'Our advanced cryptographic design provides top-tier protection for all transactions and smart contracts, leveraging cutting-edge security protocols to safeguard user assets, prevent unauthorized access, and ensure the integrity of the blockchain network.',
     color: 'text-indigo-500',
@@ -46,6 +46,27 @@ const features = [
     color: 'text-cyan-500',
     bgColor: 'bg-cyan-50',
   },
+  {
+    icon: <FileText className="h-10 w-10" />,
+    title: 'Smart Contracts',
+    description: 'XELIS introduces native Layer 1 smart contracts, allowing developers to create powerful decentralized applications with a rust-adapted language called "Silex" which allows unparalleled flexibility, security, and efficiency.',
+    color: 'text-teal-500',
+    bgColor: 'bg-teal-50',
+  },
+  {
+    icon: <Key className="h-10 w-10" />,
+    title: 'Confidential Tokens',
+    description: 'XELIS empowers the creation of confidential tokens that, as Layer 1 assets, inherit the same robust privacy features as native XELIS. This ensures complete financial confidentiality while upholding integrity and decentralization.',
+    color: 'text-red-500',
+    bgColor: 'bg-red-50',
+  },
+  {
+    icon: <Network className="h-10 w-10" />,
+    title: 'P2P Encrypted Network',
+    description: 'XELIS operates on a fully encrypted peer-to-peer network, providing a secure, censorship-resistant, and private environment for seamless communication between nodes. This ensures that all data exchanges remain confidential.',
+    color: 'text-gray-500',
+    bgColor: 'bg-gray-50',
+  }
 ];
 
 const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: number }) => {
@@ -88,3 +109,4 @@ const Features = () => {
 };
 
 export default Features;
+

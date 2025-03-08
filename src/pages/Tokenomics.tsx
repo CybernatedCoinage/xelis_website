@@ -1,25 +1,45 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedButton from '@/components/AnimatedButton';
 import { PieChart, Package, Coins, Lock, TrendingUp, ArrowRight, Shield, Users } from 'lucide-react';
 
 const Tokenomics = () => {
+  // State for circulating supply
+  const [circulatingSupply, setCirculatingSupply] = useState("Loading...");
+
+  // Fetch circulating supply on component mount
+  useEffect(() => {
+    const fetchCirculatingSupply = async () => {
+      try {
+        // Using the correct API endpoint
+        const response = await fetch('https://mini-api.xelis.io/?key=circulating_supply');
+        const textData = await response.text();
+        
+        // Parse as a number and round to integer before formatting with commas
+        const integerSupply = Math.floor(Number(textData.trim()));
+        const formattedSupply = integerSupply.toLocaleString();
+        setCirculatingSupply(`${formattedSupply} XEL`);
+      } catch (error) {
+        console.error("Error fetching circulating supply:", error);
+        setCirculatingSupply("Loading..."); // Fallback value
+      }
+    };
+
+    fetchCirculatingSupply();
+  }, []);
+
   // Token allocation data for the pie chart visualization
   const tokenAllocation = [
-    { category: "Community", percentage: 30, color: "#00f2c3" },
-    { category: "Development", percentage: 25, color: "#00d6ab" },
-    { category: "Treasury", percentage: 20, color: "#33f7ce" },
-    { category: "Team & Advisors", percentage: 15, color: "#00c096" },
-    { category: "Early Contributors", percentage: 10, color: "#009e7c" }
+    { category: "Mining Rewards", percentage: 90, color: "#00f2c3" },
+    { category: "Treasury", percentage: 10, color: "#009e7c" }
   ];
 
   // Token details
   const tokenDetails = [
-    { title: "Max Supply", value: "18,400,000 XELIS", icon: <Package className="h-5 w-5" /> },
-    { title: "Circulating Supply", value: "~5,300,000 XELIS", icon: <Coins className="h-5 w-5" /> },
-    { title: "Block Reward", value: "Decreasing over time", icon: <TrendingUp className="h-5 w-5" /> },
+    { title: "Max Supply", value: "18,400,000 XEL", icon: <Package className="h-5 w-5" /> },
+    { title: "Circulating Supply", value: circulatingSupply, icon: <Coins className="h-5 w-5" /> },
+    { title: "Block Reward", value: "Decreasing each block", icon: <TrendingUp className="h-5 w-5" /> },
     { title: "Emission Model", value: "Deflationary", icon: <Lock className="h-5 w-5" /> }
   ];
 
@@ -41,15 +61,15 @@ const Tokenomics = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">XELIS Tokenomics</h1>
             <p className="text-lg text-gray-600 mb-8">
-              An overview of XELIS token distribution, emission schedule, and economic model 
+              An overview of XELIS coin distribution, emission schedule, and economic model 
               designed for long-term sustainability and growth.
             </p>
           </div>
         </section>
 
-        {/* Token Overview */}
+        {/* Coin Overview */}
         <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Token Overview</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Coin Overview</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div className="glass-card p-6 flex flex-col h-full">
@@ -57,18 +77,16 @@ const Tokenomics = () => {
                 <div className="p-3 rounded-lg bg-xelis-blue text-white">
                   <Coins className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-semibold ml-4">XELIS Token</h3>
+                <h3 className="text-xl font-semibold ml-4">XELIS Coin</h3>
               </div>
               
               <div className="space-y-4 mb-6 flex-grow">
                 <p className="text-gray-600">
-                  XELIS is the native utility token of the XELIS blockchain, designed to 
-                  facilitate transactions, secure the network through staking, and govern 
-                  protocol decisions.
+                  XELIS is the native utility coin of the XELIS blockchain, designed to 
+                  facilitate transactions, secure the network through mining, and as a gas token for smart contracts and tokens.
                 </p>
                 <p className="text-gray-600">
-                  With a fixed maximum supply and a deflationary emission model, 
-                  XELIS is engineered for long-term value preservation.
+                  With a fixed maximum supply and burning within our smart contract system, Xelis will be a deflationary emission model, engineered for long-term value preservation.
                 </p>
               </div>
               
@@ -90,7 +108,7 @@ const Tokenomics = () => {
                 <div className="p-3 rounded-lg bg-xelis-blue text-white">
                   <PieChart className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-semibold ml-4">Token Allocation</h3>
+                <h3 className="text-xl font-semibold ml-4">Coin Allocation</h3>
               </div>
               
               <div className="flex-grow">
@@ -147,57 +165,31 @@ const Tokenomics = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Emission Schedule</h2>
             
-            <div className="glass-card p-8">
-              <p className="text-gray-600 mb-8 text-center">
-                The XELIS emission schedule follows a deflationary model with block rewards 
-                halving approximately every two years to ensure long-term scarcity.
-              </p>
-              
-              <div className="space-y-6">
-                {emissionSchedule.map((phase, index) => (
-                  <div key={index} className="relative">
-                    {/* Timeline connector */}
-                    {index < emissionSchedule.length - 1 && (
-                      <div className="absolute left-6 top-6 bottom-0 w-0.5 bg-gray-200"></div>
-                    )}
-                    
-                    <div className="flex">
-                      <div className="flex-shrink-0 pt-1">
-                        <div className="w-3 h-3 rounded-full bg-xelis-blue ring-4 ring-xelis-blue/20"></div>
-                      </div>
-                      
-                      <div className="ml-6">
-                        <h3 className="text-lg font-medium text-gray-900">{phase.period}</h3>
-                        <p className="font-medium text-xelis-blue mt-1">{phase.reward}</p>
-                        <p className="text-gray-600 mt-2">{phase.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+            <div className="glass-card p-8 flex justify-center">
+      <img src="/lovable-uploads/emission.png" alt="Xelis Emission Schedule" className="w-full max-w-2xl rounded-lg shadow-lg" />
+    </div>
+  </div>
+</section>
 
         {/* Token Utility */}
         <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Token Utility</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Coin Utility</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
                 title: "Network Security",
-                description: "XELIS tokens secure the network through staking, with validators receiving rewards for honest participation.",
+                description: "XELIS coins secure the network through Proof of Work GPU & CPU mining, with miners receiving rewards for honest participation.",
                 icon: <Shield className="h-6 w-6" />
               },
               {
                 title: "Transaction Fees",
-                description: "XELIS is used to pay for transaction fees on the network, with a portion of fees burned to create deflationary pressure.",
+                description: "XELIS is used to pay for transaction fees on the network, with a portion of smart contract fees burned.",
                 icon: <ArrowRight className="h-6 w-6" />
               },
               {
-                title: "Governance",
-                description: "Token holders can participate in governance decisions that shape the future development of the XELIS protocol.",
+                title: "Future Governance",
+                description: "In the future XELIS will create a DAO where coin holders can influence governance decisions shaping the future of XELIS.",
                 icon: <Users className="h-6 w-6" />
               }
             ].map((utility, index) => (

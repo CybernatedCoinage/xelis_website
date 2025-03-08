@@ -63,8 +63,8 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="link-hover font-medium">Features</a>
-          <a href="#about" className="link-hover font-medium">About</a>
+          <a href="/#about" className="link-hover font-medium">About</a>
+          <a href="/#features" className="link-hover font-medium">Features</a>
           <Link to="/roadmap" className="link-hover font-medium">Roadmap</Link>
           <Link to="/exchanges" className="link-hover font-medium">Exchanges</Link>
           <Link to="/resources" className="link-hover font-medium">Resources</Link>
@@ -73,8 +73,7 @@ const Navbar = () => {
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">GitHub</a>
-          <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary">
-            Get a Wallet
+          <a href="/resources" className="button-primary">Get a Wallet
           </a>
         </div>
 

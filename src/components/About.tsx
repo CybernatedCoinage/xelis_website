@@ -132,7 +132,7 @@ const About = () => {
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">MultiThread TPS+</span>
+                    <span className="text-sm text-gray-600">MultiThread TPS</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                       <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
                     </div>

@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
 import About from '@/components/About';
+import Features from '@/components/Features';
 import Footer from '@/components/Footer';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -31,8 +31,8 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <About /> {/* Moved above Features */}
       <Features />
-      <About />
       <Footer />
 
       {/* Scroll to top button */}

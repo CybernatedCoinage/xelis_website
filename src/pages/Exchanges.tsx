@@ -29,34 +29,98 @@ const Exchanges = () => {
     {
       name: "TradeOgre",
       logo: "/lovable-uploads/tradeogre.png",
-      url: "https://tradeogre.com/exchange/BTC-XELIS",
-      pairs: ["BTC-XELIS"],
+      url: "https://tradeogre.com/exchange/XEL-USDT",
+      pairs: ["XEL-USDT"],
       type: "Centralized",
       features: ["No KYC required", "Simple interface", "Low fees"]
     },
     {
       name: "MEXC Global",
       logo: "/lovable-uploads/mexc.png",
-      url: "https://www.mexc.com/exchange/XELIS_USDT",
-      pairs: ["XELIS-USDT", "XELIS-BTC"],
+      url: "https://www.mexc.com/exchange/XEL_USDT",
+      pairs: ["XEL-USDT"],
       type: "Centralized",
-      features: ["High liquidity", "Mobile app", "Multiple trading pairs"]
+      features: ["High liquidity", "Mobile app", "1000s of trading pairs"]
     },
     {
-      name: "Hotbit",
-      logo: "/lovable-uploads/hotbit.png",
-      url: "https://www.hotbit.io/exchange?symbol=XELIS_USDT",
-      pairs: ["XELIS-USDT"],
+      name: "XT",
+      logo: "/lovable-uploads/xt.png",
+      url: "https://www.xt.com/en/trade/xel_usdt",
+      pairs: ["XEL-USDT"],
       type: "Centralized",
-      features: ["Global access", "Advanced trading tools", "Staking options"]
+      features: ["Low Fees", "Advanced trading tools", "24-7 Support"]
     },
     {
-      name: "XelisDEX",
-      logo: "/lovable-uploads/xelisdex.png",
-      url: "https://dex.xelis.io",
-      pairs: ["XELIS-USDT", "XELIS-ETH"],
-      type: "Decentralized",
-      features: ["Non-custodial", "Direct wallet connection", "Low fees"]
+      name: "CoinEx",
+      logo: "/lovable-uploads/coinex.png",
+      url: "https://www.coinex.com/exchange/xel-usdt",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["Low Fees", "Wide Asset Pairs", "Spot Trading"]
+    },
+    {
+      name: "Biconomy",
+      logo: "/lovable-uploads/biconomy.png",
+      url: "https://www.biconomy.com/exchange/XEL_USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["USA Friendly", "Simple interface", "Low fees"]
+    },
+    {
+      name: "BIT",
+      logo: "/lovable-uploads/BIT.png",
+      url: "https://www.bit.com/spot?pair=XEL-USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["Mobile App", "Alt Coins", "Institutional Services"]
+    },
+    {
+      name: "Xeggex",
+      logo: "/lovable-uploads/xeggex.png",
+      url: "https://xeggex.com/market/XEL_USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["PoW Projects", "Simple Interface", "Low fees"]
+    },
+    {
+      name: "NonKYC",
+      logo: "/lovable-uploads/nonkyc.png",
+      url: "https://nonkyc.io/market/XEL_USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["KYC Not Required", "Easy to Use", "Low Fees"]
+    },
+    {
+      name: "SafeTrade",
+      logo: "/lovable-uploads/safetrade.png",
+      url: "https://safetrade.com/exchange/XEL-USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["PoW Projects", "Alt Coins", "No KYC Required"]
+    },
+    {
+      name: "Exbitron",
+      logo: "/lovable-uploads/exbitron.png",
+      url: "https://exbitron.com/trade?market=XEL-USDT",
+      pairs: ["XEL-USDT"],
+      type: "Centralized",
+      features: ["PoW Projects", "No KYC Required", "Low fees"]
+    },
+    {
+      name: "Trocador",
+      logo: "/lovable-uploads/trocador.png",
+      url: "https://trocador.app/en/?ref=1JXff8w6Gx&ticker_to=xel",
+      pairs: ["Many"],
+      type: "Swap",
+      features: ["No KYC required", "Many Pairs", "Privacy Focused"]
+    },
+    {
+      name: "Exolix",
+      logo: "/lovable-uploads/exolix.png",
+      url: "https://exolix.com/currencies/xel",
+      pairs: ["Many"],
+      type: "Swap",
+      features: ["Many Pairs", "Simple interface", "Aggregator"]
     }
   ];
 
@@ -143,20 +207,17 @@ const Exchanges = () => {
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               The XELIS team is working continuously to expand exchange listings. 
               More trading options will be added as the project grows.
+              <br />
+              <br />
+              Reminder: Not your Keys, not your crypto. 
+              <br />
+              Always hold your XELIS in a wallet and not on exchanges!
+
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+              
               <a 
-                href="https://docs.xelis.io/links/exchanges" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="button-primary"
-              >
-                Latest Exchange Updates
-              </a>
-              <a 
-                href="https://xelis.io/resources" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/resources" 
                 className="button-secondary"
               >
                 Get a Wallet

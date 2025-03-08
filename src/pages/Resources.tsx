@@ -2,11 +2,11 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Wallet, Download, Globe, Server, Shield, Clock, ArrowRight, Github, Droplet } from 'lucide-react';
+import { Wallet, Download, Globe, Server, Shield, Clock, ArrowRight, Github, Droplet, FileText, Briefcase } from 'lucide-react';
 import AnimatedButton from '@/components/AnimatedButton';
 
 const Resources = () => {
-  // Wallet options data
+  // Wallet options data with two new wallet types added
   const wallets = [
     {
       name: "Xelis Web Wallet",
@@ -21,7 +21,7 @@ const Resources = () => {
       name: "Desktop Wallet",
       description: "Download the official Xelis wallet for Windows, macOS, or Linux.",
       features: ["Full control", "Advanced features", "Highest security"],
-      url: "https://github.com/xelis-project/xelis-desktop-wallet/releases",
+      url: "https://github.com/xelis-project/xelis-genesix-wallet/releases",
       buttonText: "Download",
       icon: <Download className="h-6 w-6" />,
       primary: false
@@ -30,20 +30,40 @@ const Resources = () => {
       name: "CLI Wallet",
       description: "Command-line interface wallet for developers and advanced users.",
       features: ["Fully featured", "Scripting support", "Developer-friendly"],
-      url: "https://github.com/xelis-project/xelis-wallet/releases",
+      url: "https://github.com/xelis-project/xelis-blockchain/releases/",
       buttonText: "View on GitHub",
       icon: <Server className="h-6 w-6" />,
       primary: false
     },
     {
       name: "Mobile Wallet",
-      description: "The XELIS mobile wallet experience for Android and iOS (Coming Soon).",
+      description: "The XELIS mobile wallet experience for Android. (iOS Coming Soon).",
       features: ["On-the-go access", "Biometric security", "User-friendly"],
-      url: "#",
-      buttonText: "Coming Soon",
+      url: "https://github.com/xelis-project/xelis-genesix-wallet/releases",
+      buttonText: "Download",
       icon: <Wallet className="h-6 w-6" />,
       primary: false,
-      disabled: true
+    },
+    // New wallet option 1: Paper Wallet
+    {
+      name: "Paper Wallet",
+      description: "Generate offline XELIS paper wallets for cold storage and maximum security.",
+      features: ["Offline storage", "Air-gapped security", "Physical backup"],
+      url: "https://paperwallet.xelis.io/",
+      buttonText: "Generate Wallet",
+      icon: <FileText className="h-6 w-6" />,
+      primary: false,
+    },
+    // New wallet option 2: Third Party MultiAsset Wallet     
+    {       
+      name: "MultiAsset Wallet",       
+      description: "Store XELIS alongside other cryptocurrencies in popular third-party wallets.",       
+      features: ["Multiple assets", "Broad ecosystem", "Simplified management"],       
+      url: "#", // Added to prevent navigation
+      buttonText: "Coming Soon",
+      icon: <Briefcase className="h-6 w-6" />, 
+      primary: false,
+      disabled: true, // Added disabled property
     }
   ];
 
@@ -73,7 +93,7 @@ const Resources = () => {
                 key={index}
                 className={`glass-card p-6 flex flex-col h-full transition-transform duration-300 hover:scale-[1.02] ${
                   wallet.primary ? 'border-xelis-blue bg-white/90 shadow-lg' : ''
-                }`}
+                } ${wallet.disabled ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
                 <div className="flex items-center mb-4">
                   <div className={`p-3 rounded-lg ${wallet.primary ? 'bg-xelis-blue text-white' : 'bg-gray-100'}`}>
@@ -97,13 +117,14 @@ const Resources = () => {
                 
                 <AnimatedButton
                   variant={wallet.primary ? "primary" : "secondary"}
-                  className="w-full justify-center"
-                  onClick={() => window.open(wallet.url, "_blank")}
-                  disabled={wallet.disabled}
+                  className={`w-full justify-center ${wallet.disabled ? 'pointer-events-none' : ''}`}
+                  onClick={() => !wallet.disabled && window.open(wallet.url, "_blank")}
                 >
                   {wallet.buttonText}
-                  {!wallet.disabled && <ArrowRight className="ml-2 h-4 w-4" />}
-                  {wallet.disabled && <Clock className="ml-2 h-4 w-4" />}
+                  {wallet.disabled ? 
+                    <Clock className="ml-2 h-4 w-4" /> : 
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  }
                 </AnimatedButton>
               </div>
             ))}
@@ -188,12 +209,62 @@ const Resources = () => {
                     <Github className="mr-2 h-4 w-4" />
                     GitHub
                   </AnimatedButton>
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://playground.xelis.io", "_blank")}
+                    className="flex items-center"
+                  >
+                    Developer Playground
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
                 </div>
               </div>
               
               <div className="md:w-1/3">
                 <img 
                   src="/lovable-uploads/transparent_backgroud_black_logo.png" 
+                  alt="XELIS Logo" 
+                  className="w-full max-w-[180px] mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Run a Node Section */}
+        <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Launch a Node</h2>
+          
+          <div className="max-w-4xl mx-auto glass-card p-8">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                <h3 className="text-xl font-semibold mb-4">Contribute to Decentralization by Running a node</h3>
+                <p className="text-gray-600 mb-6">
+                Run a XELIS node to support network decentralization, validate transactions, and enhance security. Access setup guides, documentation, and tools to deploy and manage your own node. Contribute to the ecosystem by strengthening the blockchain's resilience and performance.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://docs.xelis.io/getting-started/build-from-source-code", "_blank")}
+                    className="flex items-center"
+                  >
+                    Build from Source
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://docs.xelis.io/getting-started/download-binaries", "_blank")}
+                    className="flex items-center"
+                  >
+                    Pre-Complied Software
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                </div>
+              </div>
+              
+              <div className="md:w-1/3">
+                <img 
+                  src="/lovable-uploads/xel.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
