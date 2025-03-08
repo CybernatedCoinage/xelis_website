@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedButton from '@/components/AnimatedButton';
-import { PieChart, Supply, Coins, Lock, TrendingUp, ArrowRight } from 'lucide-react';
+import { PieChart, Package, Coins, Lock, TrendingUp, ArrowRight, Shield, Users } from 'lucide-react';
 
 const Tokenomics = () => {
   // Token allocation data for the pie chart visualization
@@ -17,7 +17,7 @@ const Tokenomics = () => {
 
   // Token details
   const tokenDetails = [
-    { title: "Max Supply", value: "18,400,000 XELIS", icon: <Supply className="h-5 w-5" /> },
+    { title: "Max Supply", value: "18,400,000 XELIS", icon: <Package className="h-5 w-5" /> },
     { title: "Circulating Supply", value: "~5,300,000 XELIS", icon: <Coins className="h-5 w-5" /> },
     { title: "Block Reward", value: "Decreasing over time", icon: <TrendingUp className="h-5 w-5" /> },
     { title: "Emission Model", value: "Deflationary", icon: <Lock className="h-5 w-5" /> }
