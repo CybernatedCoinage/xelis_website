@@ -68,6 +68,7 @@ const Navbar = () => {
           <Link to="/roadmap" className="link-hover font-medium">Roadmap</Link>
           <Link to="/exchanges" className="link-hover font-medium">Exchanges</Link>
           <Link to="/resources" className="link-hover font-medium">Resources</Link>
+          <Link to="/tokenomics" className="link-hover font-medium">Tokenomics</Link>
           <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Documentation</a>
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Stats</a>
@@ -131,6 +132,13 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Resources
+          </Link>
+          <Link 
+            to="/tokenomics" 
+            className="text-lg py-3" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Tokenomics
           </Link>
           <a 
             href="https://docs.xelis.io" 
