@@ -28,68 +28,95 @@ const Roadmap = () => {
   const roadmapMilestones = [
     {
       id: 1,
-      title: "Phase 1: Foundation",
-      date: "Q1-Q2 2023",
+      title: "Phase 1: Conceptualization",
+      date: "2001-2023",
       completed: true,
       items: [
-        "Launch of mainnet",
-        "Basic wallet functionality",
-        "Core protocol implementation",
-        "Initial documentation",
-        "Community building"
+        "Project Conceptualization",
+        "BlockDAG Implementation",
+        "XSWD Websocket Communication",
+        "Client Protocol Development",
       ]
     },
     {
       id: 2,
-      title: "Phase 2: Growth",
-      date: "Q3-Q4 2023",
+      title: "Phase 2: Foundation",
+      date: "Q1 2024",
       completed: true,
       items: [
-        "Mobile wallet development",
-        "Explorer improvements",
-        "Enhanced security features",
-        "First exchange listings",
-        "Developer SDK release"
+        "Homomorphic Encryption Integration",
+        "Kalman Filter Difficulty Adjustment",
+        "XelisHash Mining Algorithm",
+        "Block Explorer Development",
+        "Indexer and Stats tools",
+        "Documentation, APIs, and SDKs"
       ]
     },
     {
       id: 3,
-      title: "Phase 3: Expansion",
-      date: "Q1-Q2 2024",
-      completed: false,
-      inProgress: true,
+      title: "Phase 3: Launch",
+      date: "Q2 2024",
+      completed: true,
+      inProgress: false,
       items: [
-        "Smart contract functionality",
-        "Cross-chain integration",
-        "Governance model implementation",
-        "Decentralized application platform",
-        "Advanced privacy features"
+        "Genesix GUI Wallet",
+        "Node BoostSync & FastSync",
+        "Mainnet Launch 4/20",
+        "XelishashV2 Algorithm",
+        "Network Upgrade #1",
+        "Node Status Resource",
+        "Mainnet Faucet"
       ]
     },
     {
       id: 4,
-      title: "Phase 4: Ecosystem",
+      title: "Phase 4: Expansion",
       date: "Q3-Q4 2024",
-      completed: false,
+      completed: true,
+      inProgress: false,
       items: [
-        "DeFi protocol suite",
-        "Enterprise partnerships",
-        "Enhanced scalability solutions",
-        "Advanced developer tools",
-        "Expanded use cases"
+        "MultiSig wallet Support",
+        "FastSync Storage Improvements",
+        "zkProof Inprovements",
+        "WhitePaper Release",
+        "P2P Key Exchange Encryption",
+        "Balance & Ownership Proofs",
+        "Genesix Update v0.0.6",
+        "Xelis Virtual Machine Enums",
+        "Xelis Pay Commerce Plugin",
+        "Merchandise Store",
+        "Xelis VM Dev. Playground",
+        "Xelis VM Shunting Yard Algo",
+        "Xelis VM Optimizations",
+        "Network Upgrade #2"
       ]
     },
     {
       id: 5,
-      title: "Phase 5: Evolution",
-      date: "2025 and beyond",
+      title: "Phase 5: Advancement",
+      date: "Q1 2025",
+      completed: false,
+      inProgress: true,
+      items: [
+        "Smart Contract Testnet",
+        "VS Code Extension for XVM",
+        "Genesiz Update v0.0.7",
+        "SDK Updates",
+        "Fiat OnRamp Interface"
+      ]
+    },
+    {
+      id: 6,
+      title: "Phase 6: Ecosystem",
+      date: "2025+",
       completed: false,
       items: [
-        "Global adoption initiatives",
-        "Advanced Layer 2 solutions",
-        "Integration with IoT networks",
-        "AI-powered features",
-        "Sustainability focus"
+        "Smart Contract Mainnet",
+        "Xelis Decentralized Exchange",
+        "Confidential Token Minting App",
+        "Ledger Hardware Wallet Support",
+        "Xelis Quests Interactive App",
+        "Developer Bounties"
       ]
     }
   ];

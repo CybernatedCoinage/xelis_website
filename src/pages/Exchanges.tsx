@@ -68,7 +68,7 @@ const Exchanges = () => {
     },
     {
       name: "BIT",
-      logo: "/lovable-uploads/BIT.png",
+      logo: "/lovable-uploads/bit.png",
       url: "https://www.bit.com/spot?pair=XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
