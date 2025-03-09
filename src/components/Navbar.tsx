@@ -13,13 +13,15 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Removed the auto-close on scroll since it might be frustrating for users
-      // who are trying to navigate while scrolled down
+      // Restored auto-close on scroll
+      if (isMobileMenuOpen && window.scrollY > 50) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     // Prevent body scrolling when mobile menu is open
@@ -120,7 +122,7 @@ const Navbar = () => {
       {/* Mobile Navigation Menu - Fixed Position with complete overlay */}
       {isMobileMenuOpen && (
         <div 
-          className="md:hidden fixed inset-0 z-40 bg-white mobile-menu-container overflow-y-auto pt-20" 
+          className="md:hidden fixed inset-0 z-40 bg-white mobile-menu-container overflow-y-auto pt-5" 
           style={{ top: '0', height: '100vh' }}
         >
           <div className="container mx-auto px-4 flex flex-col space-y-3 text-center">
