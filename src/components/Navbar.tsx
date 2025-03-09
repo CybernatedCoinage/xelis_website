@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -6,55 +6,23 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Handle scroll events and menu state
-  const handleScroll = useCallback(() => {
-    const currentScrollTop = window.scrollY;
-    setIsScrolled(currentScrollTop > 10);
-
-    // Force close the menu when scrolling occurs
-    if (isMobileMenuOpen) {
-      if (scrollTimeoutRef.current) {
-        window.clearTimeout(scrollTimeoutRef.current);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      
+      if (isMobileMenuOpen && window.scrollY > 50) {
+        setIsMobileMenuOpen(false);
       }
+    };
 
-      scrollTimeoutRef.current = window.setTimeout(() => {
-        if (Math.abs(currentScrollTop - lastScrollTop) > 5) {
-          setIsMobileMenuOpen(false); // Close the menu when scrolling
-        }
-      }, 50);
-    }
-
-    let lastScrollTop = currentScrollTop;
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    // Set initial scroll state
-    setIsScrolled(window.scrollY > 10);
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeoutRef.current) {
-        window.clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, [handleScroll]);
-
-  // Handle body scroll locking and outside clicks
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      // Lock body scroll when menu is open
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Restore body scroll when menu is closed
-      document.body.style.overflow = '';
-    }
-
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (
@@ -67,17 +35,8 @@ const Navbar = () => {
     };
 
     document.addEventListener('click', handleClickOutside);
-    
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = '';
-    };
+    return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
-  
-  // Explicitly close menu when route changes
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
 
   const toggleMobileMenu = (e: React.MouseEvent) => {
     e.stopPropagation(); 
@@ -97,7 +56,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
 
     if (location.pathname !== "/") {
-      navigate("/"); 
+      navigate("/");
       setTimeout(() => scrollToSection(section), 300);
     } else {
       scrollToSection(section);
@@ -150,26 +109,24 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      {isMobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 z-40 bg-white mobile-menu-container overflow-y-auto pt-5" 
-          style={{ top: '0', height: '100vh' }}
-        >
-          <div className="container mx-auto px-4 flex flex-col space-y-3 text-center">
-            <button onClick={() => handleNavClick('features')} className="text-base py-2">Features</button>
-            <button onClick={() => handleNavClick('about')} className="text-base py-2">About</button>
-            <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
-            <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
-            <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
-            <Link to="/tokenomics" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</Link>
-            <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Documentation</a>
-            <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
-            <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
-            <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
-            <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
-          </div>
+      <div className={cn(
+        "md:hidden fixed inset-0 z-40 bg-white transition-all duration-300 ease-in-out mobile-menu-container", 
+        isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+      )}>
+        <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh] pt-10">
+          <button onClick={() => handleNavClick('features')} className="text-base py-2">Features</button>
+          <button onClick={() => handleNavClick('about')} className="text-base py-2">About</button>
+          <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
+          <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
+          <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
+          <Link to="/tokenomics" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</Link>
+          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Documentation</a>
+          <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
+          <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
+          <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
+          <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
