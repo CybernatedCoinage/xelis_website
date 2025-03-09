@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -26,7 +25,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      // Check if click is outside menu and not on the toggle button itself
       if (
         isMobileMenuOpen && 
         !target.closest('.mobile-menu-container') && 
@@ -41,7 +39,7 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent the click from bubbling to document
+    e.stopPropagation(); 
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
@@ -62,7 +60,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           <a href="/#about" className="link-hover font-medium">About</a>
           <a href="/#features" className="link-hover font-medium">Features</a>
           <Link to="/roadmap" className="link-hover font-medium">Roadmap</Link>
@@ -73,8 +71,7 @@ const Navbar = () => {
           <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Explorer</a>
           <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">Stats</a>
           <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="link-hover font-medium">GitHub</a>
-          <a href="/resources" className="button-primary">Get a Wallet
-          </a>
+          <a href="/resources" className="button-primary">Get a Wallet</a>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -96,90 +93,18 @@ const Navbar = () => {
         "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out mobile-menu-container", 
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
-        <div className="container mx-auto px-4 flex flex-col space-y-6 text-center">
-          <a 
-            href="/#features" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Features
-          </a>
-          <a 
-            href="/#about" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About
-          </a>
-          <Link 
-            to="/roadmap" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Roadmap
-          </Link>
-          <Link 
-            to="/exchanges" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Exchanges
-          </Link>
-          <Link 
-            to="/resources" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Resources
-          </Link>
-          <Link 
-            to="/tokenomics" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Tokenomics
-          </Link>
-          <a 
-            href="https://docs.xelis.io" 
-            target="_blank" rel="noopener noreferrer" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Documentation
-          </a>
-          <a 
-            href="https://explorer.xelis.io" 
-            target="_blank" rel="noopener noreferrer" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Explorer
-          </a>
-          <a 
-            href="https://stats.xelis.io" 
-            target="_blank" rel="noopener noreferrer" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Stats
-          </a>
-          <a 
-            href="https://github.com/xelis-project" 
-            target="_blank" rel="noopener noreferrer" 
-            className="text-lg py-3" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            GitHub
-          </a>
-          <a 
-            href="https://xelis.io/resources"
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="button-primary mx-auto"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Get A Wallet
-          </a>
+        <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh]">
+          <a href="/#features" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+          <a href="/#about" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
+          <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
+          <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
+          <Link to="/tokenomics" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</Link>
+          <a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Documentation</a>
+          <a href="https://explorer.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Explorer</a>
+          <a href="https://stats.xelis.io" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Stats</a>
+          <a href="https://github.com/xelis-project" target="_blank" rel="noopener noreferrer" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>GitHub</a>
+          <a href="https://xelis.io/resources" target="_blank" rel="noopener noreferrer" className="button-primary mx-auto mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get A Wallet</a>
         </div>
       </div>
     </nav>
