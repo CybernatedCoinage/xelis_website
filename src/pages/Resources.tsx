@@ -77,8 +77,7 @@ const Resources = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">XELIS Wallets & Resources</h1>
             <p className="text-lg text-gray-600 mb-8">
-              Resources to get you started with Xelis. Access and manage your XELIS with our range of secure wallet options, obtain free XELIS from our faucet, or run a node and contribute to our network security.
-            </p>
+            Explore the essential resources to get started with Xelis. Securely access and manage your XELIS through a variety of wallet options, claim free XELIS from our faucet, run a node, or mine XELIS using CPU/GPU to help strengthen the network's security.</p>
           </div>
         </section>
 
