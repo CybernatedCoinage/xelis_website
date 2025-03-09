@@ -98,14 +98,14 @@ const Navbar = () => {
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-6 text-center">
           <a 
-            href="#features" 
+            href="/#features" 
             className="text-lg py-3" 
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Features
           </a>
           <a 
-            href="#about" 
+            href="/#about" 
             className="text-lg py-3" 
             onClick={() => setIsMobileMenuOpen(false)}
           >
