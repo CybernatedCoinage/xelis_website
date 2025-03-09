@@ -38,6 +38,11 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    // Ensure the page scrolls to the top on route change
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const toggleMobileMenu = (e: React.MouseEvent) => {
     e.stopPropagation(); 
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -56,7 +61,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
 
     if (location.pathname !== "/") {
-      navigate("/");
+      navigate("/"); 
       setTimeout(() => scrollToSection(section), 300);
     } else {
       scrollToSection(section);
