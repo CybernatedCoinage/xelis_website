@@ -110,10 +110,10 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-white z-40 pt-5 transition-all duration-300 ease-in-out mobile-menu-container", 
-        isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        "md:hidden fixed inset-0 z-40 bg-white transition-all duration-300 ease-in-out mobile-menu-container", 
+        isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
       )}>
-        <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh]">
+        <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh] pt-10">
           <button onClick={() => handleNavClick('features')} className="text-base py-2">Features</button>
           <button onClick={() => handleNavClick('about')} className="text-base py-2">About</button>
           <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
