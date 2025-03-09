@@ -57,7 +57,7 @@ const Resources = () => {
     // New wallet option 2: Third Party MultiAsset Wallet     
     {       
       name: "MultiAsset Wallet",       
-      description: "Store XELIS alongside other cryptocurrencies in popular third-party wallets.",       
+      description: "Store XELIS alongside other cryptocurrencies in a popular third-party wallet.",       
       features: ["Multiple assets", "Broad ecosystem", "Simplified management"],       
       url: "#", // Added to prevent navigation
       buttonText: "Coming Soon",
@@ -77,14 +77,13 @@ const Resources = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">XELIS Wallets & Resources</h1>
             <p className="text-lg text-gray-600 mb-8">
-              Access and manage your XELIS with our range of secure wallet options
-              and helpful resources for getting started.
+              Resources to get you started with Xelis. Access and manage your XELIS with our range of secure wallet options, obtain free XELIS from our faucet, or run a node and contribute to our network security.
             </p>
           </div>
         </section>
 
         {/* Wallets Section */}
-        <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl">
+        <section className="container mx-auto px-4 py-4 bg-gray-50 rounded-3xl">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Choose Your Wallet</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -179,9 +178,83 @@ const Resources = () => {
             </div>
           </div>
         </section>
-
-        {/* Developer Resources */}
+        
+        {/* Run a Node Section */}
         <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Launch a Node</h2>
+          
+          <div className="max-w-4xl mx-auto glass-card p-8">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                <h3 className="text-xl font-semibold mb-4">Contribute to Decentralization by Running a node</h3>
+                <p className="text-gray-600 mb-6">
+                Run a XELIS node to support network decentralization, validate transactions, and enhance security. Access setup guides, documentation, and tools to deploy and manage your own node. Contribute to the ecosystem by strengthening the blockchain's resilience and performance.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://docs.xelis.io/getting-started/build-from-source-code", "_blank")}
+                    className="flex items-center"
+                  >
+                    Build from Source
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://docs.xelis.io/getting-started/download-binaries", "_blank")}
+                    className="flex items-center"
+                  >
+                    Pre-Complied Software
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                </div>
+              </div>
+              
+              <div className="md:w-1/3">
+                <img 
+                  src="/lovable-uploads/xel.png" 
+                  alt="XELIS Logo" 
+                  className="w-full max-w-[180px] mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+                {/* How to Mine Xelis */}
+                <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Mining Xelis</h2>
+          
+          <div className="max-w-4xl mx-auto glass-card p-8">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                <h3 className="text-xl font-semibold mb-4">How to Mine Xelis</h3>
+                <p className="text-gray-600 mb-6">
+                Xelis is a Proof of Work (PoW) blockchain, where mining plays a crucial role in ensuring its security. At the heart of Xelis lies decentralization, which is why we’ve developed a unique mining algorithm that is resistant to ASIC and FPGA mining, making it efficiently mineable only with GPUs and CPUs. Our proprietary XelisHashV2 algorithm is highly memory-intensive, yet it operates with exceptionally low energy consumption, making it one of the most energy-efficient mining algorithms ever created.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <AnimatedButton 
+                    variant="secondary"
+                    onClick={() => window.open("https://github.com/CybernatedCoinage/How-To-Mine-Xelis/tree/main", "_blank")}
+                    className="flex items-center"
+                  >
+                    How to Mine Xelis Guide
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </AnimatedButton>
+                </div>
+              </div>
+              
+              <div className="md:w-1/3">
+                <img 
+                  src="/lovable-uploads/xel.png" 
+                  alt="XELIS Logo" 
+                  className="w-full max-w-[180px] mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+         {/* Developer Resources */}
+         <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Developer Resources</h2>
           
           <div className="max-w-4xl mx-auto glass-card p-8">
@@ -223,48 +296,6 @@ const Resources = () => {
               <div className="md:w-1/3">
                 <img 
                   src="/lovable-uploads/transparent_backgroud_black_logo.png" 
-                  alt="XELIS Logo" 
-                  className="w-full max-w-[180px] mx-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Run a Node Section */}
-        <section className="container mx-auto px-4 py-12 bg-gray-50 rounded-3xl mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Launch a Node</h2>
-          
-          <div className="max-w-4xl mx-auto glass-card p-8">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                <h3 className="text-xl font-semibold mb-4">Contribute to Decentralization by Running a node</h3>
-                <p className="text-gray-600 mb-6">
-                Run a XELIS node to support network decentralization, validate transactions, and enhance security. Access setup guides, documentation, and tools to deploy and manage your own node. Contribute to the ecosystem by strengthening the blockchain's resilience and performance.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <AnimatedButton 
-                    variant="secondary"
-                    onClick={() => window.open("https://docs.xelis.io/getting-started/build-from-source-code", "_blank")}
-                    className="flex items-center"
-                  >
-                    Build from Source
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </AnimatedButton>
-                  <AnimatedButton 
-                    variant="secondary"
-                    onClick={() => window.open("https://docs.xelis.io/getting-started/download-binaries", "_blank")}
-                    className="flex items-center"
-                  >
-                    Pre-Complied Software
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </AnimatedButton>
-                </div>
-              </div>
-              
-              <div className="md:w-1/3">
-                <img 
-                  src="/lovable-uploads/xel.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
