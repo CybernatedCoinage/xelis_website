@@ -10,7 +10,6 @@ import Exchanges from "./pages/Exchanges";
 import Resources from "./pages/Resources";
 import Tokenomics from "./pages/Tokenomics";
 import NotFound from "./pages/NotFound";
-import PdfViewer from "./pages/pdfviewer";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/exchanges" element={<Exchanges />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/tokenomics" element={<Tokenomics />} />
-          <Route path="/pdf" element={<PdfViewer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
