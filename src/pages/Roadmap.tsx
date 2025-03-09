@@ -29,7 +29,7 @@ const Roadmap = () => {
     {
       id: 1,
       title: "Phase 1: Conceptualization",
-      date: "2001-2023",
+      date: "2021-2023",
       completed: true,
       items: [
         "Project Conceptualization",
