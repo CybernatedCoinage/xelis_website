@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -6,37 +6,55 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const scrollTimeoutRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Handle scroll events and menu state
   useEffect(() => {
+    // Set initial scroll state
+    setIsScrolled(window.scrollY > 10);
+    
+    let lastScrollTop = window.scrollY;
+    
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 10);
+      const currentScrollTop = window.scrollY;
+      setIsScrolled(currentScrollTop > 10);
       
-      // Enhanced auto-close logic: close menu when user scrolls more than 20px in any direction
-      if (isMobileMenuOpen && Math.abs(currentScrollY - lastScrollY) > 20) {
-        setIsMobileMenuOpen(false);
+      // Force close the menu when scrolling occurs
+      if (isMobileMenuOpen) {
+        // Use a small debounce to ensure we don't close during tiny scroll adjustments
+        if (scrollTimeoutRef.current) {
+          window.clearTimeout(scrollTimeoutRef.current);
+        }
+        
+        scrollTimeoutRef.current = window.setTimeout(() => {
+          if (Math.abs(currentScrollTop - lastScrollTop) > 5) {
+            setIsMobileMenuOpen(false);
+          }
+        }, 50);
       }
       
-      setLastScrollY(currentScrollY);
+      lastScrollTop = currentScrollTop;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobileMenuOpen, lastScrollY]);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [isMobileMenuOpen]);
 
-  // Run once on component mount to initialize lastScrollY
+  // Handle body scroll locking and outside clicks
   useEffect(() => {
-    setLastScrollY(window.scrollY);
-  }, []);
-
-  useEffect(() => {
-    // Prevent body scrolling when mobile menu is open
     if (isMobileMenuOpen) {
+      // Lock body scroll when menu is open
       document.body.style.overflow = 'hidden';
     } else {
+      // Restore body scroll when menu is closed
       document.body.style.overflow = '';
     }
 
@@ -52,11 +70,17 @@ const Navbar = () => {
     };
 
     document.addEventListener('click', handleClickOutside);
+    
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = ''; // Restore scrolling when component unmounts
+      document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
+  
+  // Explicitly close menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const toggleMobileMenu = (e: React.MouseEvent) => {
     e.stopPropagation(); 
@@ -128,7 +152,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu - Fixed Position with complete overlay */}
+      {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
         <div 
           className="md:hidden fixed inset-0 z-40 bg-white mobile-menu-container overflow-y-auto pt-5" 
