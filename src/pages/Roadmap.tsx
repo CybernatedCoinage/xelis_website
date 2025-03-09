@@ -98,11 +98,11 @@ const Roadmap = () => {
       completed: false,
       inProgress: true,
       items: [
-        "Smart Contract Testnet",
+        "Smart Contract Testnet (Completed)",
         "VS Code Extension for XVM",
-        "Genesiz Update v0.0.7",
+        "Genesix Update v0.0.7 (Completed)",
         "SDK Updates",
-        "Fiat OnRamp Interface"
+        "Fiat OnRamp Interface (Completed)"
       ]
     },
     {
