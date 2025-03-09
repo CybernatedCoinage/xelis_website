@@ -82,14 +82,12 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} XELIS. All rights reserved.
+            © {new Date().getFullYear()} XELIS.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-xelis-blue transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-xelis-blue transition-colors">
-              Terms of Service
+            
+            <a className="text-sm text-gray-500">
+            Use our tools and software at your own risk, we will not take any responsibility in the way it is used.
             </a>
           </div>
         </div>
