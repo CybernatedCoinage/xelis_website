@@ -6,22 +6,31 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 10);
       
-      // Restored auto-close on scroll
-      if (isMobileMenuOpen && window.scrollY > 50) {
+      // Enhanced auto-close logic: close menu when user scrolls more than 20px in any direction
+      if (isMobileMenuOpen && Math.abs(currentScrollY - lastScrollY) > 20) {
         setIsMobileMenuOpen(false);
       }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, lastScrollY]);
+
+  // Run once on component mount to initialize lastScrollY
+  useEffect(() => {
+    setLastScrollY(window.scrollY);
+  }, []);
 
   useEffect(() => {
     // Prevent body scrolling when mobile menu is open
