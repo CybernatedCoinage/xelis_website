@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Close mobile menu when scrolling significantly
       if (isMobileMenuOpen && window.scrollY > 50) {
         setIsMobileMenuOpen(false);
       }
@@ -21,7 +22,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobileMenuOpen]);
 
-  // Close menu when clicking outside, but make sure to exclude the toggle button itself
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -43,6 +43,26 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleNavClick = (section: string) => {
+    setIsMobileMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(section), 300);
+    } else {
+      scrollToSection(section);
+    }
+  };
+
   return (
     <nav 
       className={cn(
@@ -61,8 +81,8 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="/#about" className="link-hover font-medium">About</a>
-          <a href="/#features" className="link-hover font-medium">Features</a>
+          <button onClick={() => handleNavClick('about')} className="link-hover font-medium">About</button>
+          <button onClick={() => handleNavClick('features')} className="link-hover font-medium">Features</button>
           <Link to="/roadmap" className="link-hover font-medium">Roadmap</Link>
           <Link to="/exchanges" className="link-hover font-medium">Exchanges</Link>
           <Link to="/resources" className="link-hover font-medium">Resources</Link>
@@ -94,8 +114,8 @@ const Navbar = () => {
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh]">
-          <Link to="/#features" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-          <Link to="/#about" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <button onClick={() => handleNavClick('features')} className="text-base py-2">Features</button>
+          <button onClick={() => handleNavClick('about')} className="text-base py-2">About</button>
           <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
           <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
           <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
