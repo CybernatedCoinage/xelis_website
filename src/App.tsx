@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/exchanges" element={<Exchanges />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/tokenomics" element={<Tokenomics />} />
-          <Route path="/pdf" element={<PdfViewer />} />
+          <Route path="/XelisWhitepaper" element={<PdfViewer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
