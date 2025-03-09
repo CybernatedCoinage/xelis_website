@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -11,42 +11,39 @@ const Navbar = () => {
   const location = useLocation();
 
   // Handle scroll events and menu state
+  const handleScroll = useCallback(() => {
+    const currentScrollTop = window.scrollY;
+    setIsScrolled(currentScrollTop > 10);
+
+    // Force close the menu when scrolling occurs
+    if (isMobileMenuOpen) {
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
+
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        if (Math.abs(currentScrollTop - lastScrollTop) > 5) {
+          setIsMobileMenuOpen(false); // Close the menu when scrolling
+        }
+      }, 50);
+    }
+
+    let lastScrollTop = currentScrollTop;
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     // Set initial scroll state
     setIsScrolled(window.scrollY > 10);
     
-    let lastScrollTop = window.scrollY;
-    
-    const handleScroll = () => {
-      const currentScrollTop = window.scrollY;
-      setIsScrolled(currentScrollTop > 10);
-      
-      // Force close the menu when scrolling occurs
-      if (isMobileMenuOpen) {
-        // Use a small debounce to ensure we don't close during tiny scroll adjustments
-        if (scrollTimeoutRef.current) {
-          window.clearTimeout(scrollTimeoutRef.current);
-        }
-        
-        scrollTimeoutRef.current = window.setTimeout(() => {
-          if (Math.abs(currentScrollTop - lastScrollTop) > 5) {
-            setIsMobileMenuOpen(false);
-          }
-        }, 50);
-      }
-      
-      lastScrollTop = currentScrollTop;
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (scrollTimeoutRef.current) {
         window.clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, [isMobileMenuOpen]);
+  }, [handleScroll]);
 
   // Handle body scroll locking and outside clicks
   useEffect(() => {
@@ -100,7 +97,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
 
     if (location.pathname !== "/") {
-      navigate("/");
+      navigate("/"); 
       setTimeout(() => scrollToSection(section), 300);
     } else {
       scrollToSection(section);
