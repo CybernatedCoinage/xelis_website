@@ -94,8 +94,8 @@ const Navbar = () => {
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh]">
-          <a href="/#features" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-          <a href="/#about" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <Link to="/#features" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+          <Link to="/#about" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           <Link to="/roadmap" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</Link>
           <Link to="/exchanges" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Exchanges</Link>
           <Link to="/resources" className="text-base py-2" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
