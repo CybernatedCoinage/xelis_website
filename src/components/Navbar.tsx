@@ -90,7 +90,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-white z-40 pt-20 transition-all duration-300 ease-in-out mobile-menu-container", 
+        "md:hidden fixed inset-0 bg-white z-40 pt-5 transition-all duration-300 ease-in-out mobile-menu-container", 
         isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}>
         <div className="container mx-auto px-4 flex flex-col space-y-3 text-center overflow-y-auto max-h-[80vh]">
