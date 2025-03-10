@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-4">
               <img 
-                src="/lovable-uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
+                src="/uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
                 alt="XELIS Logo" 
                 className="h-10"
               />
@@ -25,13 +25,13 @@ const Footer = () => {
               {[
                 { href: "https://github.com/xelis-project", img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg", label: "GitHub" },
                 { href: "https://x.com/XelisCurrency", img: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg", label: "Twitter" },
-                { href: "https://discord.gg/xelis", img: "/lovable-uploads/discord2.png", label: "Discord" },
+                { href: "https://discord.gg/xelis", img: "/uploads/discord2.png", label: "Discord" },
                 { href: "https://t.me/xelis_io", img: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg", label: "Telegram" },
-                { href: "https://www.instagram.com/xeliscommunity", img: "/lovable-uploads/insta.png", label: "Instagram" },
-                { href: "https://www.tiktok.com/@xeliscommunity", img: "/lovable-uploads/tik.png", label: "TikTok" },
-                { href: "https://www.reddit.com/r/xelis/", img: "/lovable-uploads/reddit.png", label: "Reddit" },
-                { href: "https://linkedin.com/company/xelis", img: "/lovable-uploads/linkedin.png", label: "LinkedIn" },
-                { href: "https://www.facebook.com/xeliscommunity/", img: "/lovable-uploads/facebook.png", label: "Facebook" },
+                { href: "https://www.instagram.com/xeliscommunity", img: "/uploads/insta.png", label: "Instagram" },
+                { href: "https://www.tiktok.com/@xeliscommunity", img: "/uploads/tik.png", label: "TikTok" },
+                { href: "https://www.reddit.com/r/xelis/", img: "/uploads/reddit.png", label: "Reddit" },
+                { href: "https://linkedin.com/company/xelis", img: "/uploads/linkedin.png", label: "LinkedIn" },
+                { href: "https://www.facebook.com/xeliscommunity/", img: "/uploads/facebook.png", label: "Facebook" },
               ].map(({ href, img, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-xelis-blue transition-colors" aria-label={label}>
                   <img src={img} alt={label} className="h-5 w-5" />
@@ -58,7 +58,7 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li><a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Documentation</a></li>
-                <li><a href="/lovable-uploads/XelisWhitepaper.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
+                <li><a href="/uploads/XelisWhitepaper.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
                 <li><a href="/roadmap"  className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</a></li>
                 <li><a href="https://xeliscommunity.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Educational Content & Updates</a></li>
                 <li><a href="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>

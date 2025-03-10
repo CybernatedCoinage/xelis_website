@@ -28,7 +28,7 @@ const Exchanges = () => {
   const exchanges = [
     {
       name: "TradeOgre",
-      logo: "/lovable-uploads/tradeogre.png",
+      logo: "/uploads/tradeogre.png",
       url: "https://tradeogre.com/exchange/XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -36,7 +36,7 @@ const Exchanges = () => {
     },
     {
       name: "MEXC Global",
-      logo: "/lovable-uploads/mexc.png",
+      logo: "/uploads/mexc.png",
       url: "https://www.mexc.com/exchange/XEL_USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -44,7 +44,7 @@ const Exchanges = () => {
     },
     {
       name: "XT",
-      logo: "/lovable-uploads/xt.png",
+      logo: "/uploads/xt.png",
       url: "https://www.xt.com/en/trade/xel_usdt",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -52,7 +52,7 @@ const Exchanges = () => {
     },
     {
       name: "CoinEx",
-      logo: "/lovable-uploads/coinex.png",
+      logo: "/uploads/coinex.png",
       url: "https://www.coinex.com/exchange/xel-usdt",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -60,7 +60,7 @@ const Exchanges = () => {
     },
     {
       name: "Biconomy",
-      logo: "/lovable-uploads/biconomy.png",
+      logo: "/uploads/biconomy.png",
       url: "https://www.biconomy.com/exchange/XEL_USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -68,7 +68,7 @@ const Exchanges = () => {
     },
     {
       name: "BIT",
-      logo: "/lovable-uploads/bit.png",
+      logo: "/uploads/bit.png",
       url: "https://www.bit.com/spot?pair=XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -76,7 +76,7 @@ const Exchanges = () => {
     },
     {
       name: "Xeggex",
-      logo: "/lovable-uploads/xeggex.png",
+      logo: "/uploads/xeggex.png",
       url: "https://xeggex.com/market/XEL_USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -84,7 +84,7 @@ const Exchanges = () => {
     },
     {
       name: "NonKYC",
-      logo: "/lovable-uploads/nonkyc.png",
+      logo: "/uploads/nonkyc.png",
       url: "https://nonkyc.io/market/XEL_USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -92,7 +92,7 @@ const Exchanges = () => {
     },
     {
       name: "SafeTrade",
-      logo: "/lovable-uploads/safetrade.png",
+      logo: "/uploads/safetrade.png",
       url: "https://safetrade.com/exchange/XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -100,7 +100,7 @@ const Exchanges = () => {
     },
     {
       name: "Exbitron",
-      logo: "/lovable-uploads/exbitron.png",
+      logo: "/uploads/exbitron.png",
       url: "https://exbitron.com/trade?market=XEL-USDT",
       pairs: ["XEL-USDT"],
       type: "Centralized",
@@ -108,7 +108,7 @@ const Exchanges = () => {
     },
     {
       name: "Trocador",
-      logo: "/lovable-uploads/trocador.png",
+      logo: "/uploads/trocador.png",
       url: "https://trocador.app/en/?ref=1JXff8w6Gx&ticker_to=xel",
       pairs: ["Many"],
       type: "Swap",
@@ -116,7 +116,7 @@ const Exchanges = () => {
     },
     {
       name: "Exolix",
-      logo: "/lovable-uploads/exolix.png",
+      logo: "/uploads/exolix.png",
       url: "https://exolix.com/currencies/xel",
       pairs: ["Many"],
       type: "Swap",
