@@ -17,7 +17,7 @@ const Footer = () => {
             </a>
             <p className="text-gray-600 mb-6 max-w-md">
               A next-generation blockchain platform designed for 
-              scalability, security, privacy, and a seamless user & developer experience.
+              scalability, security, privacy, DeFi, and a seamless user and developer experience.
             </p>
             <div className="flex space-x-4">
               {/* Social Icons */}
