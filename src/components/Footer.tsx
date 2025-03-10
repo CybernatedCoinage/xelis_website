@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <a href="/" className="inline-block mb-4">
               <img 
-                src="/uploads/3d021b05-5555-480b-941e-9bce7c03a97a.png" 
+                src="/uploads/transparent_backgroud_black_logo.png" 
                 alt="XELIS Logo" 
                 className="h-10"
               />

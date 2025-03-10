@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -78,7 +79,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/transparent_backgroud_black_logo.png" 
+            src="/uploads/transparent_backgroud_black_logo.png" 
             alt="XELIS Logo" 
             className="h-8"
           />
