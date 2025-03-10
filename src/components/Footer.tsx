@@ -24,7 +24,7 @@ const Footer = () => {
               {[
                 { href: "https://github.com/xelis-project", img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg", label: "GitHub" },
                 { href: "https://x.com/XelisCurrency", img: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg", label: "Twitter" },
-                { href: "https://discord.gg/xelis", img: "/lovable-uploads/discord1.png", label: "Discord" },
+                { href: "https://discord.gg/xelis", img: "/lovable-uploads/discord2.png", label: "Discord" },
                 { href: "https://t.me/xelis_io", img: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg", label: "Telegram" },
                 { href: "https://www.instagram.com/xeliscommunity", img: "/lovable-uploads/insta.png", label: "Instagram" },
                 { href: "https://www.tiktok.com/@xeliscommunity", img: "/lovable-uploads/tik.png", label: "TikTok" },
