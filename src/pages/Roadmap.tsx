@@ -102,7 +102,8 @@ const Roadmap = () => {
         "VS Code Extension for XVM",
         "Genesix Update v0.0.7 (Completed)",
         "SDK Updates",
-        "Fiat OnRamp Interface (Completed)"
+        "Fiat OnRamp Interface (Completed)",
+        "Website Redesign"
       ]
     },
     {
