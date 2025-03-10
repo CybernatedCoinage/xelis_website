@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Globe, Mail } from 'lucide-react';
 
@@ -57,7 +58,7 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li><a href="https://docs.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Documentation</a></li>
-                <li><a href="https://whitepaper.xelis.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
+                <li><a href="/lovable-uploads/XelisWhitepaper.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Whitepaper</a></li>
                 <li><a href="/roadmap"  className="text-gray-600 hover:text-xelis-blue transition-colors">Roadmap</a></li>
                 <li><a href="https://xeliscommunity.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-xelis-blue transition-colors">Educational Content & Updates</a></li>
                 <li><a href="/resources"  className="text-gray-600 hover:text-xelis-blue transition-colors">Wallets</a></li>
