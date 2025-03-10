@@ -88,7 +88,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-xelis-blue mb-1">2,500+</div>
-                  <div className="text-sm text-gray-500">Max Transactions Per Seconds</div>
+                  <div className="text-sm text-gray-500">Max Transactions Per Second</div>
                 </div>
                 
                 <div className="text-center p-4 bg-white rounded-lg shadow-sm">
@@ -102,7 +102,7 @@ const About = () => {
                 </div>
                 
                 <div className="text-center p-4 bg-white rounded-lg shadow-sm">
-                  <div className="text-3xl font-bold text-xelis-blue mb-1">99.99%</div>
+                  <div className="text-3xl font-bold text-xelis-blue mb-1">100%</div>
                   <div className="text-sm text-gray-500">Network Uptime</div>
                 </div>
                 
@@ -132,16 +132,16 @@ const About = () => {
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">MultiThread TPS</span>
+                    <span className="text-sm text-gray-600">TPS Increase</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
+                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '95%' }}></div>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Multiasset Wallet</span>
                     <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '60%' }}></div>
+                      <div className="bg-xelis-blue h-2.5 rounded-full" style={{ width: '75%' }}></div>
                     </div>
                   </div>
                 </div>
