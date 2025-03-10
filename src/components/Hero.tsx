@@ -20,9 +20,9 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-            <span className="block">Secure, Scalable, Private</span>
-            <span className="block text-xelis-blue">Cutting-Edge BlockDAG</span>
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
+            <span className="block mb-4">Secure, Scalable & Decentralized</span>
+            <span className="block text-xelis-blue">Confidential BlockDAG</span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in animate-delay-200">
