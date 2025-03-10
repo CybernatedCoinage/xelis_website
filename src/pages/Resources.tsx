@@ -211,7 +211,7 @@ const Resources = () => {
               
               <div className="md:w-1/3">
                 <img 
-                  src="/lovable-uploads/xel.png" 
+                  src="/uploads/xel.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
@@ -244,7 +244,7 @@ const Resources = () => {
               
               <div className="md:w-1/3">
                 <img 
-                  src="/lovable-uploads/xel.png" 
+                  src="/uploads/mine.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
@@ -294,7 +294,7 @@ const Resources = () => {
               
               <div className="md:w-1/3">
                 <img 
-                  src="/lovable-uploads/transparent_backgroud_black_logo.png" 
+                  src="/uploads/transparent_backgroud_black_logo.png" 
                   alt="XELIS Logo" 
                   className="w-full max-w-[180px] mx-auto"
                 />
