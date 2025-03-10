@@ -49,7 +49,7 @@ const features = [
   {
     icon: <FileText className="h-10 w-10" />,
     title: 'Smart Contracts',
-    description: 'XELIS introduces native Layer 1 smart contracts, allowing developers to create powerful decentralized applications with a rust-adapted language called "Silex" which allows unparalleled flexibility, security, and efficiency.',
+    description: 'XELIS introduces native Layer 1 smart contracts, allowing developers to create powerful decentralized applications with a language called "Silex" which allows unparalleled flexibility, security, and efficiency with a rust-like Syntax.',
     color: 'text-teal-500',
     bgColor: 'bg-teal-50',
   },
